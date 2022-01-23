@@ -8,6 +8,18 @@ function createGridDivs() {
         squaresContainer.appendChild(manyDivs);
     }
 }
-
 createGridDivs();
 
+const squares = document.querySelectorAll('.square');
+//squares is now a nodelist
+
+for (i = 0; i < squares.length - 1; ++i) {
+    squares[i].addEventListener('mouseenter', colorChange); 
+}
+
+function colorChange(event) {
+    event.target.classList.add('colored');
+}
+/*
+
+*/
