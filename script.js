@@ -1,4 +1,4 @@
-const squaresContainer = document.querySelector('.squaresContainer');
+const squaresContainer = document.querySelector('.squares-container');
 let manyDivs;
 
 function createGridDivs() {
@@ -13,13 +13,21 @@ createGridDivs();
 const squares = document.querySelectorAll('.square');
 //squares is now a nodelist
 
-for (i = 0; i < squares.length - 1; ++i) {
+for (i = 0; i < squares.length; ++i) {
     squares[i].addEventListener('mouseenter', colorChange); 
 }
 
 function colorChange(event) {
-    event.target.classList.add('colored');
+    event.target.style.backgroundColor = randomHSL();
 }
-/*
 
-*/
+function randomInt(max) {
+    return Math.floor(Math.random() * max);
+}
+
+function randomHSL() {
+    let h = randomInt(360);
+    return `hsl(${h}, 80%, 70%)`;
+}
+
+//study: data attribute (MDN)
