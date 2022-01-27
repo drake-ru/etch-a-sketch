@@ -12,7 +12,7 @@
 
 .squares-container {
     display: grid;
-    grid-template-columns: repeat(16, 1fr);
+    /*grid-template-columns: changed via javascript in script.js file*/
     height: 95vh;
     width: 95vh;
     
