@@ -30,6 +30,7 @@ function clearAndReset() {
             for (let i = 1; i <= totalGridNumber; ++i) {
                 manyDivs = document.createElement('div');
                 manyDivs.classList.add('square');
+                manyDivs.setAttribute("data-lightness", 70);
                 squaresContainer.appendChild(manyDivs);
                 squaresContainer.style.gridTemplateColumns = `repeat(${gridNumber}, 1fr)`;
             }
@@ -41,35 +42,19 @@ function clearAndReset() {
                 }
         }
 
-
             function colorChange(event) {
-                event.target.style.backgroundColor = randomHSL();
+                event.target.dataset.lightness = Math.max(event.target.dataset.lightness - 10, 0);
+                let currentLightness = event.target.dataset.lightness;
+                event.target.style.backgroundColor = randomHSLandDarken(currentLightness);
             }
 
-                    function randomHSL() {
+                    function randomHSLandDarken(lightness) {
                         let h = randomInt(360);
-                        return `hsl(${h}, 80%, 70%)`;
-                    }
+                        let l = lightness;
+                        
+                            return `hsl(${h}, 80%, ${l}%)`;
+                     }
 
                             function randomInt(max) {
                                 return Math.floor(Math.random() * max);
                             }
-
-
-
-
-
-
-
-
-//study: data attribute (MDN)
-
-/*Add a button to the top of the screen 
-to clear the current grid 
-send the user a popup 
-ask for the number of squares per side for the new grid. 
-Once entered, the new grid should be generated in the same total space as before (e.g. 960px wide) 
-so that you’ve got a new sketch pad. 
-Tip: Set the limit for the user input to a maximum of 100. 
-A larger number of squares results in more computer resources being used, potentially causing delays, freezing, or crashing that we want to prevent.
-*/

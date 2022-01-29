@@ -22,13 +22,16 @@
     height: auto;
     width: auto;
     padding: 0px;
-    background-color: pink;
+    background-color: hsl(350, 100%, 88%);
     margin: 1px;
 }
 
+/*
 .colored {
     background-color: paleturquoise;
 }
+ changed via javascript in script.js file
+*/
 
 .top-bar {
     height: 5vh;
